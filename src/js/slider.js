@@ -17,15 +17,19 @@ const activeSlide = (index) => {
 const disabledButton = (index) => {
     console.log(index)
     if (index === 0) {
+        prev.setAttribute('disabled', true)
         prev.classList.add('slider__button-unactive');
     }
      if (index !== 0) {
+        prev.setAttribute('disabled', false)
         prev.classList.remove('slider__button-unactive');
     }
      if (index === slides.length - 1) {
+        next.setAttribute('disabled', true)
         next.classList.add('slider__button-unactive');
     }
     if (index !== slides.length - 1) {
+        next.setAttribute('disabled', true)
         next.classList.remove('slider__button-unactive');
     }
 }
