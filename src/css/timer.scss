@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap');
+
+
+.timer__content {
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(217, 85, 80);
+    color: #fff;
+}
+
+.timer__header {
+    display: flex;
+    padding: 1rem 0 3rem;
+    max-width: 40%;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid rgb(12, 10, 10, 0.2);
+}
+
+.timer__logo {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+.timer__header-inner {
+    display: flex;
+    gap: 1rem;
+}
+
+.timer__item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.5rem 1.5rem;
+    background-color:rgba(255, 255, 255, 0.2);
+    border-radius: 5%;
+}
+
+.header__icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+.timer__block {
+    max-width: 40%;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    margin-top: 3rem;
+    background-color:rgba(255, 255, 255, 0.1);
+    border-radius: 5%;
+}
+
+.timer__statuses {
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.timer__status {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.5rem 1.25rem;
+    border-radius: 7%;
+}
+
+.timer__status-active {
+    background: none rgba(0, 0, 0, 0.15);
+}
+
+.timer__time {
+    padding: 2rem 0 3rem;
+    text-align: center;
+    font-size: 10rem;
+    font-weight: bold;
+}
+
+.timer__button {
+    margin: 0 auto;
+    width: 30%;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fff;
+    color:rgb(217, 85, 80);
+    border-radius: 8%;
+}
+
+.timer__ocassion {
+    padding-top: 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    text-align: center;
+}
+
+.timer__call span:last-child {
+    display: none;
+}
