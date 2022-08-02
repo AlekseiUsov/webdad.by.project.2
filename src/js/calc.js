@@ -1,6 +1,7 @@
 const calc = document.querySelector('.calc__inner');
 const result = document.querySelector('#calc__input');
 const symbols = ['-', '+', '/', '*'];
+const symbolsForReset = ['/', '*', '+'];
 const priotirySymbols = ['/', '*'];
 const notPriotirySymbols = ['-', '+'];
 
@@ -33,10 +34,23 @@ const mathOperations = (num1,num2,operator) => {
   };
 
 const preptData = (data) => {
-   const result = [...data].reduce((acc, el) => {
-      const current = symbols.includes(el) ? ` ${el} ` : `${el}`;
-      return acc + current;
-     }, '');
+  let result = '';
+  for (let i = 0; i < data.length; i += 1) {
+    let last = data[i - 1];
+    let current = data[i];
+    let next = data[i + 1];
+
+    if (isNaN(Number(last)) && current  === '-' && !symbols.includes(next)) {
+      result += `-${next}`;
+      i += 1;
+    }
+    if (!isNaN(Number(last)) && symbols.includes(current) && !isNaN(Number(next))) {
+      result += ` ${current} `;
+    }
+    if (!symbols.includes(current)) {
+      result += `${current}`;
+    }
+  }
   return result;
 }
 
@@ -60,22 +74,23 @@ const operationData = (data) => {
      if (!requirement) {
       if (notPriotirySymbols.includes(current)) {
         array.splice(lastIndex,3,result);
+        return operationData(array.join(''));
       }
      }
    }
-   return array.join('');
+   return array.join(''); 
 }
 
 const calcFunction = (event) => {
     if (event.target.classList.contains('calc__item')) {
       const value = event.target.innerHTML;
-      result.value += value;
+      result.value += symbolsForReset.includes(value) && result.value === '' ? '' : value;
     }
     if (event.target.classList.contains('calc__equally')) {
       result.value = operationData(result.value);
     }
     if (event.target.classList.contains('calc__delete')) {
-      result.value = result.value.substring(0, result.value.length - 1);
+      result.value = result.value.slice(0, -1); 
     }
     if (event.target.classList.contains('calc__reset')) {
       result.value = '';

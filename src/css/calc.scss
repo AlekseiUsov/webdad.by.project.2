@@ -57,10 +57,16 @@
     align-items: center;
 }
 
-.calc__item:hover {
+.calc__item:hover, 
+.calc__equally:hover, 
+.calc__delete:hover, 
+.calc__reset:hover {
     background-color: rgb(243, 203, 152);
 }
 
-.calc__item:active {
+.calc__item:active, 
+.calc__equally:active, 
+.calc__delete:active, 
+.calc__reset:active {
     background-color: rgb(247, 233, 215);
 }
