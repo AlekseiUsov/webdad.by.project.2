@@ -40,7 +40,7 @@ const preptData = (data) => {
     let current = data[i];
     let next = data[i + 1];
 
-    if (isNaN(Number(last)) && current  === '-' && !symbols.includes(next)) {
+    if (isNaN(Number(last)) && current  === '-' && !isNaN(Number(next))) {
       result += `-${next}`;
       i += 1;
     }
