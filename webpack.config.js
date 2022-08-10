@@ -29,6 +29,10 @@ module.exports = {
         loader: "html-loader"
       },
       {
+        test: /\.mp3$/,
+        loader: 'file-loader',
+      },
+      {
         test: /\.s[ac]ss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
       },

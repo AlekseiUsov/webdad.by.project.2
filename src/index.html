@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carusel</title>
 </head>
-<body>
+
+<body class="body">
     <section class="slider">
         <div class="slider__content">
             <div class="slider__list">
@@ -72,9 +74,10 @@
                     <p>Таймер</p>
                 </div>
                 <div class="timer__header-inner">
-                    <div class="timer__item">
+                    <div class="timer__item timer__item-setting">
                         <div class="header__icon">
-                            <img src="assert/timer/1904675-configuration-edit-gear-options-preferences-setting-settings_122525.svg">
+                            <img
+                                src="assert/timer/1904675-configuration-edit-gear-options-preferences-setting-settings_122525.svg">
                         </div>
                         <p class="header__text">Настройки</p>
                     </div>
@@ -88,10 +91,11 @@
             </div>
             <div class="timer__block">
                 <ul class="timer__statuses">
-                    <li class="timer__status timer__status-active">Упражнение</li>
-                    <li class="timer__status">Пауза</li>
+                    <li class="timer__status timer__status-exercise timer__status-active">Упражнение</li>
+                    <li class="timer__status timer__status-break timer__status-short-break">Короткая пауза</li>
+                    <li class="timer__status timer__status-break timer__status-long-break">Длинная пауза</li>
                 </ul>
-                <div class="timer__time">2:00</div>
+                <div class="timer__time">00:05</div>
                 <div class="timer__button">
                     <span>ПOEХАЛИ!</span>
                     <span>СТОП!</span>
@@ -106,5 +110,64 @@
             </div>
         </div>
     </section>
+    <section class="timer__pop-ups">
+        <div class="timer__pop-ups__content hidden">
+            <div class="timer__pop-ups__block">
+                <div class="timer__pop-ups__header">
+                    <h1 class="timer__pop-ups__title">НАСТРОЙКИ ТАЙМЕРА</h1>
+                    <span class="timer__pop-ups__close">
+                        <img src="assert/timer/close-svgrepo-com.svg">
+                    </span>
+                </div>
+                <div class="timer__pop-ups__settings">
+                    <h2 class="timer__pop-ups__subtitle">Время(минуты)</h2>
+                    <div class="timer__pop-ups__inputs">
+                        <div class="timer__pop-ups__input">
+                            <label for="exercise">Упражнение</label>
+                            <input class="timer__pop-ups-exercise-min" type="number" id="exercise" value="0" placeholder="минуты">
+                            <input class="timer__pop-ups-exercise-sec"type="number" id="exercise" value="5" placeholder="секунды">
+                        </div>
+                        <div class="timer__pop-ups__input">
+                            <label for="shorts-break">Короткая пауза</label>
+                            <input class="timer__pop-ups-short-break-min" type="number" id="shorts-break" value="0" placeholder="минуты">
+                            <input class="timer__pop-ups-short-break-sec"type="number" id="shorts-break" value="5" placeholder="секунды">
+                        </div>
+                        <div class="timer__pop-ups__input">
+                            <label for="long-break">Длинная пауза</label>
+                            <input class="timer__pop-ups-long-break-min" type="number" id="long-break" value="0" placeholder="минуты">
+                            <input class="timer__pop-ups-long-break-sec" type="number" id="long-break" value="5" placeholder="секунды">
+                        </div>
+                    </div>
+                </div>
+                <div class="timer__pop-ups__question">
+                    <h2 class="timer__pop-ups__subtitle">Автоматический старт пауз?</h2>
+                    <div class="timer__pop-ups__toggle">
+                        <span class="timer__pop-ups__dot"></span>
+                    </div>
+                </div>
+                <div class="timer__pop-ups__question">
+                    <h2 class="timer__pop-ups__subtitle">Автоматические старт упражения?</h2>
+                    <div class="timer__pop-ups__toggle">
+                        <span class="timer__pop-ups__dot"></span>
+                    </div>
+                </div>
+                <div class="timer__pop-ups__volume">
+                    <h2 class="timer__pop-ups__subtitle">Громкость уведомления</h2>
+                    <div class="timer__pop-ups__slider">
+                        <output for="myRange" value="50" class="timer__pop-ups__range-num">50</output>
+                        <input type="range" min="1" max="100" value="50" class="timer__pop-ups__range" id="myRange">
+                    </div>
+                </div>
+                <div class="timer__pop-ups__long-break">
+                    <h2 class="timer__pop-ups__subtitle">Длинная пауза после упражения?</h2>
+                    <input class="timer__pop-ups__long-break-after-count" type="number" value="5">
+                </div>
+                <div class="timer__pop-ups__footer">
+                    <div class="timer__pop-ups__button">OK</div>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>
