@@ -16,6 +16,7 @@ const timerStatusesColl = document.querySelectorAll('.timer__status');
 const call = document.querySelector('.timer__call');
 
 const longBreakAfterExercise = document.querySelector('.timer__pop-ups__long-break-after-count');
+const timerCount = document.querySelector('.timer__count');
 
 let interval;
 let minutesValueForPrint;
@@ -80,25 +81,35 @@ const nextStatus = () => {
   for (let i = 0; i < timerStatusesColl.length; i += 1) {
 
     const current = timerStatusesColl[i];
-    const next = Number(longBreakAfterExercise.value) % countExercise  !== 0 ? timerStatusesColl[i + 1] : timerStatusesColl[i + 2];
-    const last = Number(longBreakAfterExercise.value) % countExercise  !== 0 ? timerStatusesColl[i - 1] : timerStatusesColl[i - 2];
+    let next = timerStatusesColl[i + 1];
+    let last = timerStatusesColl[i - 1];
+    
+    timerCount.innerHTML = countExercise > 1 ? `#${countExercise}` : timerCount.innerHTML;
+    console.log(countExercise)
+    if ((countExercise + 1) % Number(longBreakAfterExercise.value) === 0 && countExercise > 1 && longBreakAfterExercise.value > 1) {
+        next = timerStatusesColl[i + 2];
+    }
+    if (countExercise % Number(longBreakAfterExercise.value) === 0 && countExercise > 1 && longBreakAfterExercise.value > 1) {
+        last = timerStatusesColl[i - 2];
+    }
 
     if (current.classList.contains('timer__status-active') && current.classList.contains('timer__status-exercise')) {
-        console.log(next)
         changeStyleOfContainer(next);
         countExercise += 1;
         interval = setInterval(timeReport, 1000);
+        break;
     }
     if (current.classList.contains('timer__status-active') && current.classList.contains('timer__status-break')) {
         changeStyleOfContainer(last);
         interval = setInterval(timeReport, 1000);
+        break;
     }
   }
 }
 
 const timeReport = () => {
     const audio = new Audio(sound1);
-    audio.volume = `0.${range.value}`;
+    audio.volume = range.value === 100 ? 1 : Number(`0.${range.value}`);
 
     const minutes = Math.floor(time / 1000 / 60) % 60;
     const seconds = Math.floor(time / 1000) % 60;
