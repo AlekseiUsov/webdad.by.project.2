@@ -77,18 +77,21 @@ const activeStatus = (event) => {
 } 
 
 const nextStatus = () => {
-  for (let i = 0; i < timerStatusesColl; i += 1) {
+  for (let i = 0; i < timerStatusesColl.length; i += 1) {
 
     const current = timerStatusesColl[i];
-    const next = countExercise % longBreakAfterExercise.value !== 0 ? timerStatusesColl[i + 1] : timerStatusesColl[i + 2];
-    const last = countExercise % longBreakAfterExercise.value !== 0 ? timerStatusesColl[i - 1] : timerStatusesColl[i - 2];
+    const next = Number(longBreakAfterExercise.value) % countExercise  !== 0 ? timerStatusesColl[i + 1] : timerStatusesColl[i + 2];
+    const last = Number(longBreakAfterExercise.value) % countExercise  !== 0 ? timerStatusesColl[i - 1] : timerStatusesColl[i - 2];
 
     if (current.classList.contains('timer__status-active') && current.classList.contains('timer__status-exercise')) {
-        countExercise += 1;
+        console.log(next)
         changeStyleOfContainer(next);
+        countExercise += 1;
+        interval = setInterval(timeReport, 1000);
     }
     if (current.classList.contains('timer__status-active') && current.classList.contains('timer__status-break')) {
         changeStyleOfContainer(last);
+        interval = setInterval(timeReport, 1000);
     }
   }
 }
