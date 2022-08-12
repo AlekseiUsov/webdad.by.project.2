@@ -73,6 +73,7 @@ const changeStyleOfContainer = (item) => {
 const activeStatus = (event) => {
     const current = event.target;
     if (current.classList.contains('timer__status')) {
+        timerCount.innerHTML = `#1`;
         changeStyleOfContainer(current);
     }
 } 
