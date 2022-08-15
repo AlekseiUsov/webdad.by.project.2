@@ -1,8 +1,19 @@
+.maze {
+    box-sizing: border-box;
+}
+
 .maze__content {
     height: 30rem;
     background-color: antiquewhite;
     box-sizing: border-box;
     padding: 2rem;
+}
+
+.maze__header {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    padding-bottom: 2rem;
 }
 
 .maze__button {
@@ -16,4 +27,47 @@
     margin: 0 auto;
     border: 2px solid rgb(12, 12, 12, 0.8);
     border-radius: 2rem;
+}
+
+.maze__button span:last-child {
+    display: none;
+}
+
+.maze__button-active span:first-child {
+    display: none;
+}
+
+.maze__button-active span:last-child {
+    display: block;
+}
+
+.maze__filed {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 15rem;
+    margin: 2rem auto 0;
+    transition: 2s;
+}
+
+.maze__square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1.5px solid #000;
+}
+
+.maze__square img {
+    width: 2.3rem;
+    height: 2.3rem;
+}
+
+.maze__square-start {
+    background-image: "url('./src/assert/muze/monkey-svgrepo-com.svg')";
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
