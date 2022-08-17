@@ -1,6 +1,7 @@
 const calc = document.querySelector('.calc__inner');
 const result = document.querySelector('#calc__input');
 const symbols = ['-', '+', '/', '*'];
+const symbolsForReset = ['/', '*', '+'];
 const priotirySymbols = ['/', '*'];
 const notPriotirySymbols = ['-', '+'];
 
@@ -38,6 +39,25 @@ const preptData = (data) => {
       return acc + current;
      }, '');
   return preptedData;
+
+  let result = '';
+  for (let i = 0; i < data.length; i += 1) {
+    let last = data[i - 1];
+    let current = data[i];
+    let next = data[i + 1];
+
+    if (isNaN(Number(last)) && current  === '-' && !isNaN(Number(next))) {
+      result += `-${next}`;
+      i += 1;
+    }
+    if (!isNaN(Number(last)) && symbols.includes(current) && !isNaN(Number(next))) {
+      result += ` ${current} `;
+    }
+    if (!symbols.includes(current)) {
+      result += `${current}`;
+    }
+  }
+  return result;
 }
 
 const operationData = (data) => {
@@ -60,24 +80,26 @@ const operationData = (data) => {
      if (!requirement) {
       if (notPriotirySymbols.includes(current)) {
         array.splice(lastIndex,3,result);
+        return operationData(array.join(''));
       }
      }
    }
-   return array.join('');
+   return array.join(''); 
 }
 
 const calcFunction = (event) => {
     if (event.target.classList.contains('calc__item')) {
         const value = event.target.innerHTML;
         const symbolsForReset = ['/', '*', '+'];
-        const firstLetter = value.substring(0,1);
-        result.value += symbolsForReset.includes(firstLetter) ? '' : value;
+
+      result.value += symbolsForReset.includes(value) && result.value === '' ? '' : value;
+
     }
     if (event.target.classList.contains('calc__equally')) {
       result.value = operationData(result.value);
     }
     if (event.target.classList.contains('calc__delete')) {
-      result.value = result.value.substring(0, result.value.length - 1);
+      result.value = result.value.slice(0, -1); 
     }
     if (event.target.classList.contains('calc__reset')) {
       result.value = '';

@@ -2,7 +2,7 @@
 import "./slider.js";
 import "./calc.js";
 import "./timer.js";
-import "./muze.js";
+import "./maze.js";
 
 // html
 import "../index.html";
