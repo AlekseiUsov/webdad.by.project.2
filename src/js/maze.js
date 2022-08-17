@@ -12,7 +12,7 @@ const randomCoordinate = () => {
     const posX = Math.round(Math.random() * (5 - 1) + 1);
     const posY = Math.round(Math.random() * (5 - 1) + 1);
 
-    if (posX === 0 && posY === 0) {
+    if (posX === 1 && posY === 1) {
         return randomCoordinate();
     }
     if (posX === 5 && posY === 5) {
