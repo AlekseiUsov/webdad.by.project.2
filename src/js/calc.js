@@ -34,12 +34,6 @@ const mathOperations = (num1,num2,operator) => {
   };
 
 const preptData = (data) => {
-   const preptedData = [...data].reduce((acc, el) => {
-      const current = symbols.includes(el) ? ` ${el} ` : `${el}`;
-      return acc + current;
-     }, '');
-  return preptedData;
-
   let result = '';
   for (let i = 0; i < data.length; i += 1) {
     let last = data[i - 1];
@@ -89,11 +83,8 @@ const operationData = (data) => {
 
 const calcFunction = (event) => {
     if (event.target.classList.contains('calc__item')) {
-        const value = event.target.innerHTML;
-        const symbolsForReset = ['/', '*', '+'];
-
+      const value = event.target.innerHTML;
       result.value += symbolsForReset.includes(value) && result.value === '' ? '' : value;
-
     }
     if (event.target.classList.contains('calc__equally')) {
       result.value = operationData(result.value);
