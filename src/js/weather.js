@@ -10,14 +10,16 @@ const requestApiByCity = async (city) => {
   console.log(data)
 }
 
+
+
 const getCurrentLocation = () => {
-const data = [];
   navigator.geolocation.getCurrentPosition(function(location) {
     data.push(location.coords.latitude);
     data.push(location.coords.longitude);
   });
   return data;
 }
+
 const requestApiByLocation = async () => {
   const [lat, long] = getCurrentLocation();
   const api = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude={part}&appid={33e752ab8ec9366342da3e11c1b7625c}`;
