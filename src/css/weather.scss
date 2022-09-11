@@ -1,12 +1,12 @@
 .weather__content {
     background-color: #43AFFC;
+    color: #43AFFC;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .weather__block {
-    transition: 2s;
     margin: 4rem auto 0;
     background-color: #fff;
     width: 20rem;
@@ -15,11 +15,19 @@
 }
 
 .weather__header {
-    position: relative;
-    color: #43AFFC;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.weather__header img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.weather__header {
     font-size: 1.5rem;
     font-weight: 600;
-    padding-bottom: 1rem;
 }
 
 .weather__header::after {
@@ -42,10 +50,10 @@
     font-size: 1.1rem;
     border-radius: 0.5rem;
     color: #0c5460;
-    background-color:  #d1ecF1;
+    background-color: #d1ecF1;
 }
 
-.weather__block :where(input,button){
+.weather__block :where(input, button) {
     box-sizing: border-box;
     width: 100%;
     height: 3.5rem;
@@ -66,7 +74,7 @@
 }
 
 .weather__block input::placeholder {
-    color:#0c5460;
+    color: #0c5460;
     font-weight: bold;
     font-size: 1.1rem;
 }
@@ -89,7 +97,7 @@
     padding: 0.5rem;
 }
 
-.weather__block button {
+.weather__inner button {
     font-size: 1.2rem;
     font-weight: 600;
     cursor: pointer;
@@ -99,14 +107,12 @@
 
 
 .weather__inner {
-    transition: 2s;
-    margin: 4rem auto 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #fff;
     width: 20rem;
-    padding: 1.5rem;
+    padding: 1.5rem 0;
     border-radius: 0.5rem;
 }
 
@@ -138,7 +144,7 @@
     font-size: 2rem;
 }
 
-.weather__temp img{
+.weather__temp img {
     display: block;
     width: 2.5rem;
     height: 2.5rem;
