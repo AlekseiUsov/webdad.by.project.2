@@ -179,12 +179,27 @@
     </section>
     <section class="weather">
         <div class="weather__content">
+            <h1 class="weather__header">Weather App</р>
             <div class="weather__block">
-                <h1 class="weather__header">Weather App</р>
-                <p class="weather__text">Enter valid name</p>
-                <input class="weather__input" type="text" placeholder="your city">
+                <p class="weather__text hidden">Please enter valid name</p>
+                <input class="weather__input" type="text" placeholder="enter your city">
                 <div class="weather__separator"></div>
                 <button class="weather__button">Get your location</button>
+            </div>
+            <div class="weather__inner hidden">
+                <div class="weather__place">
+                    <img src="/src/assert/weather/loc.svg">
+                    <p class="weather__city">Saint-Petersburg</p>
+                </div>
+                <div class="weather__line"></div>
+                <img src="/src/assert/weather/солнечно.png">
+                <div class="weather__temp">
+                    <p class="weather__num">14</p>
+                    <p class="weather__deg"> &#176C</p>
+                </div>
+                <div class="weather__line"></div>
+                <p class="weather__descripton">Sunny</p>
+            </div>
             </div>
         </div>
     </section>

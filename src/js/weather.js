@@ -1,29 +1,52 @@
 const weatherInput = document.querySelector('.weather__input');
 const weatherButton = document.querySelector('.weather__button');
+
+const weatherBlock = document.querySelector('.weather__block');
+const weatherInner = document.querySelector('.weather__inner');
+
+const weatherCity = document.querySelector('.weather__city');
+const weatherTemp = document.querySelector('.weather__num');
+
+const weatherText = document.querySelector('.weather__text');
 const myApiKey = 'http://api.weatherstack.com/current?access_key=6472d5f8eee9652e214cbb90b6688789';
 let location;
 
-
-const requestApiByCity = async (city) => {
-  const request = await fetch(`${myApiKey}&query=${city}`);
-  const data = request.json();
-  console.log(data)
+const requestApiByCity = (city) => {
+  try {
+    fetch (`${myApiKey}&query=${city}`)
+    .then((response) => response.json())
+    .then((data) => {
+      weatherBlock.classList.toggle('hidden');
+      weatherCity.textContent = data.location.name;
+      weatherTemp.textContent = data.current.temperature;
+      weatherInner.classList.toggle('hidden');
+    })
+  }
+  catch(e) {
+    weatherText.classList.add(weather__text-invalid);
+  }
 }
 
+const requestApiByLocation = () => {
+  let lat;
+  let long;
 
-
-const getCurrentLocation = () => {
   navigator.geolocation.getCurrentPosition(function(location) {
-    data.push(location.coords.latitude);
-    data.push(location.coords.longitude);
+    lat = location.coords.latitude;
+    long = location.coords.longitude;
+    console.log(location.coords.latitude);
+    console.log(location.coords.longitude);
   });
-  return data;
-}
 
-const requestApiByLocation = async () => {
-  const [lat, long] = getCurrentLocation();
-  const api = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&exclude={part}&appid={33e752ab8ec9366342da3e11c1b7625c}`;
-  console.log(api)
+  const api = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${long}&appid=33e752ab8ec9366342da3e11c1b7625c`;
+  try {
+    fetch (api)
+    .then((response) => response.json())
+    .then((data) => {console.log(data)})
+  }
+  catch(e) {
+    console.log(e)
+  }
 }
 
 
