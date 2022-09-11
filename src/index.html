@@ -124,18 +124,24 @@
                     <div class="timer__pop-ups__inputs">
                         <div class="timer__pop-ups__input">
                             <label for="exercise">Упражнение</label>
-                            <input class="timer__pop-ups-exercise-min" type="number" id="exercise" value="0" placeholder="минуты">
-                            <input class="timer__pop-ups-exercise-sec"type="number" id="exercise" value="5" placeholder="секунды">
+                            <input class="timer__pop-ups-exercise-min" type="number" id="exercise" value="0"
+                                placeholder="минуты">
+                            <input class="timer__pop-ups-exercise-sec" type="number" id="exercise" value="5"
+                                placeholder="секунды">
                         </div>
                         <div class="timer__pop-ups__input">
                             <label for="shorts-break">Короткая пауза</label>
-                            <input class="timer__pop-ups-short-break-min" type="number" id="shorts-break" value="0" placeholder="минуты">
-                            <input class="timer__pop-ups-short-break-sec"type="number" id="shorts-break" value="5" placeholder="секунды">
+                            <input class="timer__pop-ups-short-break-min" type="number" id="shorts-break" value="0"
+                                placeholder="минуты">
+                            <input class="timer__pop-ups-short-break-sec" type="number" id="shorts-break" value="5"
+                                placeholder="секунды">
                         </div>
                         <div class="timer__pop-ups__input">
                             <label for="long-break">Длинная пауза</label>
-                            <input class="timer__pop-ups-long-break-min" type="number" id="long-break" value="0" placeholder="минуты">
-                            <input class="timer__pop-ups-long-break-sec" type="number" id="long-break" value="5" placeholder="секунды">
+                            <input class="timer__pop-ups-long-break-min" type="number" id="long-break" value="0"
+                                placeholder="минуты">
+                            <input class="timer__pop-ups-long-break-sec" type="number" id="long-break" value="5"
+                                placeholder="секунды">
                         </div>
                     </div>
                 </div>
@@ -175,6 +181,37 @@
                 <span>Start</span>
                 <span>Stop</span>
             </div>
+        </div>
+    </section>
+    <section class="weather">
+        <div class="weather__content">
+            <div class="weather__block">
+                <div class="weather__header">
+                    <img class="weather__arrow" src="/src/assert/weather/arrow.svg">
+                    <h1 class="weather__header">Weather App</р>
+                </div>
+                <div class="weather__inner weather__inner-first">
+                    <p class="weather__text hidden">Please enter valid name</p>
+                    <input class="weather__input" type="text" placeholder="enter your city">
+                    <div class="weather__separator"></div>
+                    <button class="weather__button">Get your location</button>
+                </div>
+                <div class="weather__inner weather__inner-second hidden">
+                    <div class="weather__place">
+                        <img src="/src/assert/weather/loc.svg">
+                        <p class="weather__city">_</p>
+                    </div>
+                    <div class="weather__line"></div>
+                    <img class="weather__image">
+                    <div class="weather__temp">
+                        <p class="weather__num">_</p>
+                        <p class="weather__deg"> &#176C</p>
+                    </div>
+                    <div class="weather__line"></div>
+                    <p class="weather__descripton">_</p>
+                </div>
+            </div>
+        </div>
         </div>
     </section>
 </body>
